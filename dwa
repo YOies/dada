@@ -1,6 +1,7 @@
 repeat wait() until game:IsLoaded()
 wait(2)
 while task.wait(.1) do 
+ pcall(function()
   game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Client"):WaitForChild("VoteStartGame"):FireServer()
 
 local args = {
@@ -70,4 +71,5 @@ local args = {
 
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ExitGame"):FireServer(unpack(args))
 end
+end)
 end
